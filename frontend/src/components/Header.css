@@ -1,0 +1,21 @@
+.Navbar{
+    height: 80px;
+    display: flex;
+    justify-content: end;
+}
+.navcon{
+    display: flex;
+    justify-content: space-between;
+}
+.cont{
+    background-color: #158cba;
+}
+.copy{
+    font-weight: 600;
+    font-size: medium;
+    margin-top: 10px;
+}
+.login{
+    font-size: x-large;
+}
+
