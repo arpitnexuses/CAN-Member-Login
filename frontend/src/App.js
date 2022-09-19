@@ -25,10 +25,10 @@ function App() {
         <Route
           path="/dashboard"
           component={Dashboard}/>
-        <Route 
-          path="/admin"
-          component={Adminpage}/>
         <Route path="/profile" component={ProfileScreen} />
+          <Route exact
+          path="/protect"
+          component={Adminpage}/>
       </main>
       <Footer />
     </Router>

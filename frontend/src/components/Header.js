@@ -48,7 +48,7 @@ function Header({ setSearch }) {
           </Nav>
           <Nav className="navcon">
             {userInfo ? (
-              <><Nav.Link href="/admin" className="login">Admin</Nav.Link>
+              <><Nav.Link href="/protect" className="login">Admin</Nav.Link>
                 <Nav.Link href="/dashboard" className="login">Dashboard</Nav.Link>
                 <Nav.Link href="/profile" className="login">Profile</Nav.Link>
                 <Button className="btn" onClick={logoutHandler} variant="danger">Logout</Button>

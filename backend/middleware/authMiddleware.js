@@ -2,15 +2,26 @@ import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
 
-const isAdmin = (req, res, next) => {
-  const { role } = req.body;
-  if(role === "user"){
-    throw (new Error('Not admistration',401));
+const isadmin = (req, res, next) => {
+  const token = req.cookies.jwt
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+      if (err) {
+        return res.status(401).json({ message: "Not authorized" })
+      } else {
+        if (decodedToken.user.role !== "admin") {
+          return res.status(401).json({ message: "Not authorized" })
+        } else {
+          next()
+        }
+      }
+    })
+  } else {
+    return res
+      .status(401)
+      .json({ message: "Not authorized, token not available" })
   }
-  else {
-
-  next();
-}}
+}
 
 
 const protect = asyncHandler(async (req, res, next) => {
@@ -41,6 +52,18 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
+const protecto = asyncHandler(async (req, res, next) => {
+  if (
+      req.user.role === "admin" 
+  )
+      next();
+     else {
+      res.status(401);
+      return new Error("Not authorized, token failed");
+    }
+  } 
+);
 
 
-export { isAdmin, protect }
+
+export { isadmin, protect, protecto }
