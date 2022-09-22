@@ -17,14 +17,13 @@ function Header({ setSearch }) {
   const history = useHistory();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
+  // const roles = userInfo.role;
   const logoutHandler = () => {
     dispatch(logout());
     history.push("/");
   };
 
   useEffect(() => {}, [userInfo]);
-
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" className="Navbar">
       <Container className="navcon">
@@ -47,14 +46,23 @@ function Header({ setSearch }) {
             <h1> </h1>
           </Nav>
           <Nav className="navcon">
-            {userInfo ? (
-              <><Nav.Link href="/protect" className="login">Admin</Nav.Link>
+             
+              {userInfo ? (
+              <>
+               { userInfo.role === 'admin' && (<Nav.Link href="/protect" className="login">Admin</Nav.Link>)}
+               { userInfo.role === "admin" && (<Nav.Link href="/onboard" className="login">Onboard</Nav.Link>)}
+               { userInfo.role === "onboard" && (<Nav.Link href="/onboard" className="login">Onboard</Nav.Link>)}
+               { userInfo.role === "manager" && (<Nav.Link href="/onboard" className="login">Onboard</Nav.Link>)}
+               { userInfo.role === "partner" && (<Nav.Link href="/onboard" className="login">Onboard</Nav.Link>)}
+               { userInfo.role === "admin" && (<Nav.Link href="/manager" className="login">Manager</Nav.Link>)}
+               { userInfo.role === "manager" && (<Nav.Link href="/manager" className="login">Manager</Nav.Link>)}
+               { userInfo.role === "admin" && (<Nav.Link href="/partner" className="login">Partner</Nav.Link>)}
+               { userInfo.role === "partner" && (<Nav.Link href="/partner" className="login">Partner</Nav.Link>)}
+               { userInfo.role === "manager" && (<Nav.Link href="/partner" className="login">Partner</Nav.Link>)}
                 <Nav.Link href="/dashboard" className="login">Dashboard</Nav.Link>
                 <Nav.Link href="/profile" className="login">Profile</Nav.Link>
                 <Button className="btn" onClick={logoutHandler} variant="danger">Logout</Button>
                 <Nav
-                  title={`${userInfo.name}`}
-                  id="collasible-nav-dropdown"
                 >
                   {/* <NavDropdown.Item href="/profile"> */}
                     {/* <img

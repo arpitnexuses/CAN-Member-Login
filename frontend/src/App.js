@@ -11,6 +11,8 @@ import CreateNote from "./screens/SingleNote/CreateNote";
 import { useState } from "react";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import Adminpage from "./screens/Admin/Adminpage";
+import ManagerPage from "./screens/Manager/ManagerPage";
+import PartnerPage from "./screens/Partner/PartnerPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -26,9 +28,16 @@ function App() {
           path="/dashboard"
           component={Dashboard}/>
         <Route path="/profile" component={ProfileScreen} />
-          <Route exact
+          <Route
           path="/protect"
           component={Adminpage}/>
+          <Route 
+          path="/manager"
+          component={ManagerPage}/>
+          <Route 
+            path="/partner"
+            component={PartnerPage}/>
+
       </main>
       <Footer />
     </Router>

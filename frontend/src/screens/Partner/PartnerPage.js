@@ -3,21 +3,20 @@ import MainScreen from "../../components/MainScreen";
 import { useSelector } from "react-redux";
 import { usePermissions } from 'react-admin';
 
-function Adminpage({history}) {
+function PartnerPage({history}) {
     const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (userInfo.role === "admin")
-      history.push("/protect");
-    if (userInfo ){
+    if (userInfo){
       history.push("/login");}    
-     
+     if (userInfo.role === "partner")
+      history.push("/partner");
    },[history,userInfo])
   
   
   return (
-    <MainScreen className="mainsc" title={`Welcome Admin ${userInfo && userInfo.name}..`}/>
+    <MainScreen className="mainsc" title={`Welcome Partner ${userInfo && userInfo.name}..`}/>
   )
 }
 
-export default Adminpage
+export default PartnerPage;

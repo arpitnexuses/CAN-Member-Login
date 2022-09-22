@@ -22,9 +22,6 @@ app.use(express.json()); // to accept json data
 
 app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
-app.route("./protect", isadmin,protecto, (req, res) => {
-  res.send("Admin page")
-})
 
 // --------------------------deployment------------------------------
 const __dirname = path.resolve();
