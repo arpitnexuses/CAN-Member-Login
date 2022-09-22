@@ -9,8 +9,6 @@ function ManagerPage({history}) {
   useEffect(() => {
     if ( !userInfo ){
       history.push("/login");}    
-     if (userInfo.role === "manager")
-      history.push("/manager");
    },[history,userInfo])
   
   

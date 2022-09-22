@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 import { usePermissions } from 'react-admin';
 
 function Adminpage({history}) {
+
     const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (userInfo.role === "admin")
-      history.push("/protect");
-    if (userInfo ){
+    if (!userInfo ){
       history.push("/login");}    
      
    },[history,userInfo])

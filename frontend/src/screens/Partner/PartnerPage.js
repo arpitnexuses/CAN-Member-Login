@@ -9,8 +9,7 @@ function PartnerPage({history}) {
   useEffect(() => {
     if (userInfo){
       history.push("/login");}    
-     if (userInfo.role === "partner")
-      history.push("/partner");
+
    },[history,userInfo])
   
   
