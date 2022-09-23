@@ -60,6 +60,7 @@ function Header({ setSearch }) {
                { userInfo.role === "partner" && (<Nav.Link href="/partner" className="login">Partner</Nav.Link>)}
                { userInfo.role === "manager" && (<Nav.Link href="/partner" className="login">Partner</Nav.Link>)}
                 <Nav.Link href="/dashboard" className="login">Dashboard</Nav.Link>
+                <Nav.Link href="/quotegenerator" className="login">Quote Generator</Nav.Link>
                 <Nav.Link href="/profile" className="login">Profile</Nav.Link>
                 <Button className="btn" onClick={logoutHandler} variant="danger">Logout</Button>
                 <Nav

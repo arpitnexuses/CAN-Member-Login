@@ -13,6 +13,8 @@ import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import Adminpage from "./screens/Admin/Adminpage";
 import ManagerPage from "./screens/Manager/ManagerPage";
 import PartnerPage from "./screens/Partner/PartnerPage";
+import OnboardPage from "./screens/Onboard/Onboard";
+import GenerateQuote from "./screens/generate-quote/GenerateQuote";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -37,6 +39,12 @@ function App() {
           <Route 
             path="/partner"
             component={PartnerPage}/>
+            <Route 
+            path="/onboard"
+            component={OnboardPage}/>
+            <Route
+              path="/quotegenerator"
+              component={GenerateQuote}/>
 
       </main>
       <Footer />

@@ -16,6 +16,12 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      phone:user.phone,
+      city:user.city,
+      country:user.country,
+      linkedin:user.linkedin,
+      company:user.company,
+      dob:user.dob,
       pic: user.pic,
       token: generateToken(user._id),
     });
@@ -29,7 +35,7 @@ const authUser = asyncHandler(async (req, res) => {
 //@route           POST /api/users/
 //@access          Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, pic, role} = req.body;
+  const { name, email, password, pic, role, city , country, linkedin, phone, company, dob} = req.body;
 
   const userExists = await User.findOne({ email });
 
@@ -43,7 +49,15 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password,
     pic,
-    role
+    role,
+    city,
+    country,
+    linkedin,
+    phone,
+    company,
+    dob,
+
+
   });
 
   if (user) {
@@ -53,6 +67,12 @@ const registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       role: user.role,
       pic: user.pic,
+      phone: user.phone,
+      city: user.city,
+      country: user.country,
+      linkedin: user.linkedin,
+      company: user.company,
+      dob: user.dob,
       token: generateToken(user._id),
     });
   } else {
@@ -71,18 +91,34 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.pic = req.body.pic || user.pic;
+    user.phone = req.body.phone || user.phone;
+    user.city = req.body.city || user.city;
+    user.country = req.body.country || user.country;
+    user.company = req.body.company || user.company;
+    user.dob = req.body.dob || user.dob;
+    user.linkedin = req.body.linkedin || user.linkedin;
     if (req.body.password) {
       user.password = req.body.password;
     }
 
     const updatedUser = await user.save();
-
+    if (updatedUser) {
+      user.role === "partner"
+    }
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
       pic: updatedUser.pic,
       role: updatedUser.role,
+      phone: updatedUser.phone,
+      city: updatedUser.city,
+      country: updatedUser.country,
+      linkedin: updatedUser.linkedin,
+      company: updatedUser.company,
+      dob: updatedUser.dob,
+
+
       token: generateToken(updatedUser._id),
     });
   } else {
@@ -90,22 +126,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new Error("User Not Found");
   }
 });
-const protectplusplus =  asyncHandler(async (req, res) => {
-  const {role} = req.body;
-  const user = await User.findOne({ email });
-  if (user && (role === 'admin')) {
-    res.json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      pic: user.pic,
-      token: generateToken(user._id),
-    });
-  } else {
-    res.status(401);
-    throw new Error("Only For Adminstration");
-  }
-});
+
     
-export { authUser, updateUserProfile, registerUser, protectplusplus };
+export { authUser, updateUserProfile, registerUser};

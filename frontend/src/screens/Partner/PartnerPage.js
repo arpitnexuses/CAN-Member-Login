@@ -7,7 +7,7 @@ function PartnerPage({history}) {
     const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
-    if (userInfo){
+    if (!userInfo){
       history.push("/login");}    
 
    },[history,userInfo])

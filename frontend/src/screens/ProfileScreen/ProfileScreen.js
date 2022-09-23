@@ -14,6 +14,12 @@ const ProfileScreen = ({ location, history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [picMessage, setPicMessage] = useState();
+  const [linkedin, setLinkedin] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [company, setCompany] = useState("");
+  const [dob, setDob] = useState("");
 
   const dispatch = useDispatch();
 
@@ -30,6 +36,12 @@ const ProfileScreen = ({ location, history }) => {
       setName(userInfo.name);
       setEmail(userInfo.email);
       setPic(userInfo.pic);
+      setPhone(userInfo.phone)
+      setLinkedin(userInfo.linkedin);
+      setCity(userInfo.city);
+      setCompany(userInfo.company);
+      setDob(userInfo.dob);
+      setCountry(userInfo.country);
     }
   }, [history, userInfo]);
 
@@ -60,7 +72,7 @@ const ProfileScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    dispatch(updateProfile({ name, email, password, pic }));
+    dispatch(updateProfile({ name, email, password, pic, phone, city, country, linkedin, dob, company }));
   };
 
   return (
@@ -112,6 +124,61 @@ const ProfileScreen = ({ location, history }) => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 ></Form.Control>
               </Form.Group>{" "}
+              <Form.Group controlId="phone">
+                <Form.Label>Contact Number</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter Contact Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="dob">
+                <Form.Label>Date of birth</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Enter Date of Birth"
+                  value={dob}
+                  onChange={(e) => setDob(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="linkedin">
+                <Form.Label>Linkedin Url</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Enter Linkdein Url"
+                  value={linkedin}
+                  onChange={(e) => setLinkedin(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="company">
+                <Form.Label>Company</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Enter Company Name"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="city">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Enter City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="country">
+                <Form.Label>Country</Form.Label>
+                <Form.Control
+                  type="string"
+                  placeholder="Enter Country"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              
               {picMessage && (
                 <ErrorMessage variant="danger">{picMessage}</ErrorMessage>
               )}
@@ -138,6 +205,7 @@ const ProfileScreen = ({ location, history }) => {
             }}
           >
             <img src={pic} alt={name} className="profilePic" />
+        
           </Col>
         </Row>
       </div>

@@ -3,7 +3,7 @@ import MainScreen from "../../components/MainScreen";
 import { useSelector } from "react-redux";
 import { usePermissions } from 'react-admin';
 
-function OnboardPage({history}) {
+function GenerateQuote({history}) {
     const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   useEffect(() => {
@@ -13,8 +13,9 @@ function OnboardPage({history}) {
   
   
   return (
-    <MainScreen className="mainsc" title={`Welcome onboarder ${userInfo && userInfo.name}..`}/>
+    <MainScreen className="mainsc" title={`Welcome to GenerateQuote ${userInfo && userInfo.name}..`}/>
   )
 }
 
-export default OnboardPage;
+export default 
+GenerateQuote;

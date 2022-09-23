@@ -17,9 +17,9 @@ const userSchema = mongoose.Schema(
       required: true,
     },
     role: {
-      type: String,
+      type: "string",
       required: true,
-      default: "user",
+      default: "onboard",
     },
     pic: {
       type: String,
@@ -27,7 +27,41 @@ const userSchema = mongoose.Schema(
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
-  },
+    linkedin:{
+      type: String,
+      required: false,
+    },
+    phone: {
+      type: "string",
+      required: false,
+      default: ''
+    },
+    dob: {
+      type: "string",
+      required: false,
+      default: ''
+    },
+    company: {
+      type: "string",
+      required: false,
+      default: ''
+    },
+    city:{
+      type: "string",
+      required: false,
+      default: ''
+    },
+    country:{
+      type: "string",
+      required: false,
+      default: ''
+    },
+    linkedin:{
+      type: "string",
+      required: false,
+      default: ''
+    }
+},
   {
     timestamps: true,
   }
