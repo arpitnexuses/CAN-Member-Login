@@ -1,14 +1,15 @@
 
-.card{
-    width: 70%;
+#cardss{
+    width: 900px !important;
     background-color: rgb(236, 234, 234);
-    margin: auto;
-    margin-bottom: 90px;
 
+    margin: auto; 
+    margin-bottom: 110px;
 }
 .fhead{
     text-align: center;
 }
+
 #genform{
     width: 65%;
     margin: auto;
@@ -68,11 +69,14 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
     font-style: italic;
     margin-top: -20px !important;
 }
+#minipo{
+    margin-left: -280px;
+}
 .covera{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 75%;
+    width: 100%;
     margin-left: 12%;
     margin-bottom: -36px;
 }
@@ -89,6 +93,7 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
     width: 80.5%;
     margin-left: 10%;
     margin-top: 20px;
+    text-align: center !important;
 
 }
 .gap2{
@@ -96,4 +101,5 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
     margin-left: 10%;
     margin-top: 20px;
     margin-bottom: 35px;
+    text-align: center !important;
 }

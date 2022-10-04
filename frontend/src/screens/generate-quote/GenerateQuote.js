@@ -55,7 +55,7 @@ function GenerateQuote ({ history }) {
                 <h6 className='mb-3'>Get Personalized Life Insurance Policy Quotes For Your Clients</h6>
             </div>
 
-            <Card body className='card'>
+            <Card body className='card' id="cardss" >
                 <h2 className='fhead'>PARTNER DETAILS</h2>
                 <Form classname="genform">
                     <Form.Group >
@@ -212,7 +212,7 @@ function GenerateQuote ({ history }) {
                             <Form.Label id="minip" className='minip'>1=Million</Form.Label>
                         </div>
                         <div>
-                            <Form.Label id="minip" className='minip'>100=Million</Form.Label>
+                            <Form.Label id="minipo" className='minip'>100=Million</Form.Label>
                         </div>
                     </div>
                     <br />
@@ -238,11 +238,11 @@ function GenerateQuote ({ history }) {
                     </Form.Group>
            
                 <div className="d-grid gap2">
-      <Button variant="primary" size="lg" className="gap1" onClick={submitHandler}>
+      <Button variant="danger" size="lg" className="gap1" onClick={submitHandler}>
         GENERATE QUOTE
       </Button>
       <Link to="/clientlist">
-      <Button variant="primary" size="lg" className="gap2">
+      <Button variant="danger" size="lg" className="gap2" id="gap2">
         CLIENT LIST
       </Button>
       </Link>

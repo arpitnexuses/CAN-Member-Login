@@ -44,7 +44,7 @@ function ClientListPage ({history})  {
   };
 
   return (
-    <MainScreen className="mainsc" title={`Welcome to Partner List`}>
+    <MainScreen className="mainsc" title={`List of Quote Generated`}>
       <div id="cardsmain">
       <div id="cards">
       {customers?.map((customer) => (
