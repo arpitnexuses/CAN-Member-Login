@@ -10,7 +10,7 @@ const Footer = () => {
         bottom: 0,
         display: "flex",
         justifyContent: "center",
-        background: "#158cba",
+        background: "#FF4B2B",
         height: "78px",
         marginTop: "-20px"
       }}

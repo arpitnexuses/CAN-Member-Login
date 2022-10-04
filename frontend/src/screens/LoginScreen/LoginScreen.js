@@ -1,71 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import React from 'react'
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
+import { Link } from 'react-router-dom';
 import { login } from "../../actions/userActions";
-import MainScreen from "../../components/MainScreen";
 import "./LoginScreen.css";
-
 function LoginScreen({ history }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
+    const userLogin = useSelector((state) => state.userLogin);
+    const { loading, error, userInfo } = userLogin;
 
-  useEffect(() => {
-    if (userInfo) {
-      history.push("/dashboard");
-    }
-  }, [history, userInfo]);
+    useEffect(() => {
+        if (userInfo) {
+            history.push("/dashboard");
+        }
+    }, [history, userInfo]);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(login(email, password));
-  };
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(login(email, password));
+    };
+    return (
+        <>
+            <body className="bodystat">
+                <h2 className='headers'></h2>
+                <div className="containerrr" id="containerrr">
 
-  return (
-    <MainScreen title="LOGIN">
-      <div className="loginContainer">
-        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-        {loading && <Loading />}
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+                    <div className="form-containerrr sign-in-containerrr">
+                        <form className="formm" onSubmit={submitHandler}>
+                            <img className="logoc" src="https://canetwork.com/wp-content/uploads/2020/07/bfinal-logo.png" width="200"
+                                height="55" />
+                            <h1 className='signinhead'>Sign in</h1>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+                            <span className='spann'>using your account</span>
+                            <input
+                                type="email"
+                                id="inputt"
+                                placeholder="Email"
+                                className='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-        <Row className="py-3">
-          <Col>
-            New Customer ? <Link to="/register">Register Here</Link>
-          </Col>
-        </Row>
-      </div>
-    </MainScreen>
-  );
+                            <input
+                                type="password"
+                                id="inputt"
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)} />
+
+
+                            <div className='btn'>
+                                <button className="button" onClick={submitHandler}>Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="overlay-containerrr">
+                        <div className="overlay">
+
+                            <div class="overlay-panel overlay-right">
+                                <h1 className='signinhead'>Hello, Members!</h1>
+                                <p className='sideleftpara'>Enter your personal details and start journey with us</p>
+                                <Link to="/register"><button className="button" id="side">Sign Up</button></Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </>
+    )
 }
 
-export default LoginScreen;
+export default LoginScreen

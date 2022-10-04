@@ -1,0 +1,23 @@
+.card{
+    width: 390px !important;
+    
+}
+#cardsmain{
+    display: grid !important;
+ 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+ 
+grid-auto-rows: auto;
+ 
+grid-gap: 1rem;
+ 
+}
+.Accordion {
+    display: grid !important;
+ 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+ 
+grid-auto-rows: auto;
+ 
+grid-gap: 1rem;
+}

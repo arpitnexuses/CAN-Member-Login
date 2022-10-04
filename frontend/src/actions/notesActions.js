@@ -1,81 +1,76 @@
 import {
-  NOTES_CREATE_FAIL,
-  NOTES_CREATE_REQUEST,
-  NOTES_CREATE_SUCCESS,
-  NOTES_DELETE_FAIL,
-  NOTES_DELETE_REQUEST,
-  NOTES_DELETE_SUCCESS,
-  NOTES_LIST_FAIL,
-  NOTES_LIST_REQUEST,
-  NOTES_LIST_SUCCESS,
-  NOTES_UPDATE_FAIL,
-  NOTES_UPDATE_REQUEST,
-  NOTES_UPDATE_SUCCESS,
-} from "../constants/notesConstants";
+  CUSTOMER_CREATE_FAIL,
+  CUSTOMER_CREATE_REQUEST,
+  CUSTOMER_CREATE_SUCCESS,
+  CUSTOMER_DELETE_FAIL,
+  CUSTOMER_DELETE_REQUEST,
+  CUSTOMER_DELETE_SUCCESS,
+  CUSTOMER_LIST_FAIL,
+  CUSTOMER_LIST_REQUEST,
+  CUSTOMER_LIST_SUCCESS,
+} from "../constants/notesConstants.js";
 import axios from "axios";
 
-export const listNotes = () => async (dispatch, getState) => {
+
+export const createCustomerAction = 
+  (fullname, dateofbirth, gender, country, city, smoker, nationality, coverageAmount, paymentterm, conditions) => async ( dispatch, getState ) => {
   try {
     dispatch({
-      type: NOTES_LIST_REQUEST,
+      type: CUSTOMER_CREATE_REQUEST,
     });
-
     const {
-      userLogin: { userInfo },
+      userLogin : { userInfo },
     } = getState();
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.get(`/api/notes`, config);
-
-    dispatch({
-      type: NOTES_LIST_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({
-      type: NOTES_LIST_FAIL,
-      payload: message,
-    });
-  }
-};
-
-export const createNoteAction = (title, content, category) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    dispatch({
-      type: NOTES_CREATE_REQUEST,
-    });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
+        "Content-type": "application/json",
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
     const { data } = await axios.post(
-      `/api/notes/create`,
-      { title, content, category },
+      `/api/customer/create`,
+      { fullname, dateofbirth, gender, country, city, smoker, nationality, coverageAmount, paymentterm, conditions },
       config
     );
 
     dispatch({
-      type: NOTES_CREATE_SUCCESS,
+      type: CUSTOMER_CREATE_SUCCESS,
+      payload: data,
+    });    
+
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({
+      type: CUSTOMER_CREATE_FAIL,
+      payload: message,
+    });
+  }
+};
+export const listCustomers = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: CUSTOMER_LIST_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`/api/customer`, config);
+
+    dispatch({
+      type: CUSTOMER_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
@@ -84,7 +79,7 @@ export const createNoteAction = (title, content, category) => async (
         ? error.response.data.message
         : error.message;
     dispatch({
-      type: NOTES_CREATE_FAIL,
+      type: CUSTOMER_LIST_FAIL,
       payload: message,
     });
   }
@@ -93,7 +88,7 @@ export const createNoteAction = (title, content, category) => async (
 export const deleteNoteAction = (id) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: NOTES_DELETE_REQUEST,
+      type: CUSTOMER_DELETE_REQUEST,
     });
 
     const {
@@ -106,10 +101,10 @@ export const deleteNoteAction = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/notes/${id}`, config);
+    const { data } = await axios.delete(`/api/customer/${id}`, config);
 
     dispatch({
-      type: NOTES_DELETE_SUCCESS,
+      type: CUSTOMER_DELETE_SUCCESS,
       payload: data,
     });
   } catch (error) {
@@ -118,19 +113,18 @@ export const deleteNoteAction = (id) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     dispatch({
-      type: NOTES_DELETE_FAIL,
+      type: CUSTOMER_DELETE_FAIL,
       payload: message,
     });
   }
 };
 
-export const updateNoteAction = (id, title, content, category) => async (
-  dispatch,
-  getState
-) => {
+
+
+export const listAllCustomers = () => async (dispatch, getState) => {
   try {
     dispatch({
-      type: NOTES_UPDATE_REQUEST,
+      type: CUSTOMER_LIST_REQUEST,
     });
 
     const {
@@ -139,19 +133,14 @@ export const updateNoteAction = (id, title, content, category) => async (
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.put(
-      `/api/notes/${id}`,
-      { title, content, category },
-      config
-    );
+    const { data } = await axios.get(`/api/adminclient`, config);
 
     dispatch({
-      type: NOTES_UPDATE_SUCCESS,
+      type: CUSTOMER_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
@@ -160,7 +149,7 @@ export const updateNoteAction = (id, title, content, category) => async (
         ? error.response.data.message
         : error.message;
     dispatch({
-      type: NOTES_UPDATE_FAIL,
+      type: CUSTOMER_LIST_FAIL,
       payload: message,
     });
   }

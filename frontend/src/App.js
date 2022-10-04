@@ -1,31 +1,44 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
-import LandingPage from "./screens/LandingPage/LandingPage";
+import Header from "./components/Header"
 import Dashboard from "./screens/MyNotes/Dashboard";
-import SingleNote from "./screens/SingleNote/SingleNote";
-import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
-import CreateNote from "./screens/SingleNote/CreateNote";
-import { useState } from "react";
+import { useEffect } from "react";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import Adminpage from "./screens/Admin/Adminpage";
 import ManagerPage from "./screens/Manager/ManagerPage";
 import PartnerPage from "./screens/Partner/PartnerPage";
 import OnboardPage from "./screens/Onboard/Onboard";
 import GenerateQuote from "./screens/generate-quote/GenerateQuote";
+import ClientListPage from "./clientlist/ClientListPage";
+import AdminCLientPage from "./clientlist/AdminClientPage";
+
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
 
 function App() {
-  const [search, setSearch] = useState("");
 
+  useEffect(() => {
+    window.process = {
+      ...window.process,
+    };
+  }, []);
   return (
-    <Router>
-      <Header setSearch={(s) => setSearch(s)} />
-      <main className="App">
-        <Route path="/" component={LandingPage} exact />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/register" component={RegisterScreen} />
+    <>
+  <div>
+  <Router>
+    
+    <main className="App">
+      <Switch>
+      <Route path="/register" component={RegisterScreen} />
+      <Route path="/login" component={LoginScreen} exact/>
+      <Route path="/" component={LoginScreen} exact />
+      <div>
+        <Header/>   
+      
+        
+       
+       
         <Route
           path="/dashboard"
           component={Dashboard}/>
@@ -45,10 +58,21 @@ function App() {
             <Route
               path="/quotegenerator"
               component={GenerateQuote}/>
+              <Route 
+                path="/clientlist"
+                component={ClientListPage}/>
+                <Route 
+                path="/adminclient"
+                component={AdminCLientPage}/>
+                    <Footer />
+                </div>
+        </Switch>
 
       </main>
-      <Footer />
-    </Router>
+  
+  </Router>
+    </div>
+    </>
   );
 }
 

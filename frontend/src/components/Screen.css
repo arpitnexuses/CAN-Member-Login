@@ -25,3 +25,14 @@
     justify-content: center;
   }
 }
+
+#links{
+  font-size: 23px !important;
+}
+#links:hover{
+  color: red;
+}
+#logos{
+  width: 260px ;
+  height: 80px;
+}

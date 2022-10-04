@@ -1,13 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import colors from "colors";
 import path from "path";
 import cors from "cors"
-import noteRoutes from "./routes/noteRoutes.js";
+import customerRoutes from "./routes/customerRoutes.js";
+import allcustomerRoutes from "./routes/allcustomerRoutes.js"
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
-import { isadmin, protecto } from "./middleware/authMiddleware.js";
 import cookieParser from "cookie-parser"
 
 dotenv.config();
@@ -20,8 +19,10 @@ app.use(cors())
 app.use(cookieParser());
 app.use(express.json()); // to accept json data
 
-app.use("/api/notes", noteRoutes);
+
 app.use("/api/users", userRoutes);
+app.use("/api/customer", customerRoutes);
+app.use("/api/adminclient", allcustomerRoutes);
 
 // --------------------------deployment------------------------------
 const __dirname = path.resolve();
@@ -41,7 +42,7 @@ if (process.env.NODE_ENV === "production") {
 // --------------------------deployment------------------------------
 
 // Error Handling middlewares
-app.use(notFound);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;

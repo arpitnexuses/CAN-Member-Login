@@ -2,6 +2,7 @@
     height: 80px;
     display: flex;
     justify-content: end;
+ 
 }
 .navcon{
     display: flex;
@@ -19,3 +20,13 @@
     font-size: x-large;
 }
 
+.cont{
+    background-color: #FF4B2B;
+}
+.btn{
+    font-size: 18px;
+    margin-right: -70px;
+}
+#logos{
+    margin-left: -90px;
+}
