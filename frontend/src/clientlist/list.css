@@ -1,23 +1,112 @@
-.card{
+.card {
     width: 390px !important;
-    
+
 }
-#cardsmain{
+
+#cardsmain {
     display: grid !important;
- 
+
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
- 
-grid-auto-rows: auto;
- 
-grid-gap: 1rem;
- 
+
+    grid-auto-rows: auto;
+
+    grid-gap: 1rem;
+
 }
+
 .Accordion {
     display: grid !important;
- 
+
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
- 
-grid-auto-rows: auto;
- 
-grid-gap: 1rem;
+
+    grid-auto-rows: auto;
+
+    grid-gap: 1rem;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    font-size: 1.4em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #FF4B2B;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #FF4B2B;
+}
+
+.styled-table tbody {
+    counter-reset: Serial;
+}
+
+.styled-table {
+    border-collapse: separate;
+}
+
+.styled-table tr td:first-child:before {
+    counter-increment: Serial;
+    content: counter(Serial);
+}
+
+
+/* CSS */
+.button-31 {
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: red;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-31:hover,
+.button-31:focus {
+  opacity: .75;
+}
+#modal-modal-title{
+    font-weight: 1000;
+    text-align: center;
+    
 }

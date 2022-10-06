@@ -163,7 +163,7 @@ const AuthNav = () => {
     };
     return (
         <Nav className="justify-content-end">
-            {userInfo ? <Button className="btn" onClick={logoutHandler} variant="danger">Logout</Button> : <Nav.Link href="/login" className="login">Login</Nav.Link>}
+            {userInfo ? <Button className="button-50" onClick={logoutHandler} variant="danger">Logout</Button> : <Nav.Link href="/login" className="login">Login</Nav.Link>}
         </Nav>
     )
   

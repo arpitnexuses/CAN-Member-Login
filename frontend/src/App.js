@@ -15,6 +15,7 @@ import ClientListPage from "./clientlist/ClientListPage";
 import AdminCLientPage from "./clientlist/AdminClientPage";
 
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
+import UpdatedClientlist from "./clientlist/UpdatedClientlist";
 
 function App() {
 
@@ -60,7 +61,7 @@ function App() {
               component={GenerateQuote}/>
               <Route 
                 path="/clientlist"
-                component={ClientListPage}/>
+                component={UpdatedClientlist}/>
                 <Route 
                 path="/adminclient"
                 component={AdminCLientPage}/>
