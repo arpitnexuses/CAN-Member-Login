@@ -25,7 +25,7 @@ const style = {
 function UpdatedClientlist({ history }) {
 
   const [modelopen, setModelopen] = useState(false);
-  const [modelData, setModelData] = useState(null);
+  const [modelData, setModelData] = useState("");
   const handleClose = () => setModelopen(false);
 
   const dispatch = useDispatch();
@@ -93,7 +93,6 @@ function UpdatedClientlist({ history }) {
                 <td> 
                   <input style={{ background: "lightgrey" }} className="button-31" type='button' value='View' 
                   onClick={() => { 
-                    
                     setModelopen(true);
                     setModelData(customer); 
                     }} 
