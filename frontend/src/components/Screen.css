@@ -36,3 +36,26 @@
   width: 260px ;
   height: 80px;
 }
+
+
+@media screen and (max-width: 480px) {
+  #links{
+    margin-right: 100%!important;
+    margin-left: 80px;
+    display: none;
+
+  }
+  #logos{
+    width: 190px ;
+    height: 65px;
+
+  }
+  .button-50{
+    margin-left: 150px;
+    display: none !important;
+  }
+  input[type=checkbox]:checked~#links{
+    display: block !important;
+  }
+
+}

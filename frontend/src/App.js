@@ -16,6 +16,10 @@ import AdminCLientPage from "./clientlist/AdminClientPage";
 
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import UpdatedClientlist from "./clientlist/UpdatedClientlist";
+import UpdatedAdminClientlist from "./clientlist/UpdatedAdminClientlist";
+import PartnerList from "./partnerlist/PartnerList";
+import UploadPages from "./screens/uploadpage/UploadPages"
+import NewHeader from "./components/NewHeader";
 
 function App() {
 
@@ -35,7 +39,7 @@ function App() {
       <Route path="/login" component={LoginScreen} exact/>
       <Route path="/" component={LoginScreen} exact />
       <div>
-        <Header/>   
+        <NewHeader/>   
       
         
        
@@ -64,8 +68,16 @@ function App() {
                 component={UpdatedClientlist}/>
                 <Route 
                 path="/adminclient"
-                component={AdminCLientPage}/>
+                component={UpdatedAdminClientlist}/>
+                <Route 
+                  path="/allpartners"
+                  component={PartnerList}/>
+                   <Route 
+                  path="/uploaddoc"
+                  component={UploadPages}/>
                     <Footer />
+              
+
                 </div>
         </Switch>
 

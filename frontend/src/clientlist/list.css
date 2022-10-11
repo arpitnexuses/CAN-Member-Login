@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap");
+
 .card {
     width: 390px !important;
+  
 
 }
 
@@ -36,7 +39,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #FF4B2B;
+    background-color: #FF0000;
     color: #ffffff;
     text-align: left;
 }
@@ -76,6 +79,7 @@
 .button-31 {
   background-color: #222;
   border-radius: 4px;
+  border: 1px solid red !important;
   border-style: none;
   box-sizing: border-box;
   color: red;
@@ -104,9 +108,81 @@
 .button-31:hover,
 .button-31:focus {
   opacity: .75;
+
 }
 #modal-modal-title{
     font-weight: 1000;
     text-align: center;
+    
+}
+.button-39{
+    width: 300px;
+}
+.button-90 {
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: red;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    max-width: none;
+    min-height: 44px;
+    min-width: 10px;
+    outline: none;
+    overflow: hidden;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 90px;
+  }
+  
+  .button-90:hover,
+  .button-90:focus {
+    opacity: .75;
+  }
+  #down{
+    border: 1px solid red;
+    opacity: .75;
+  }
+  #down:hover{
+    color: red !important;
+    background: white!important
+  }
+  #req{
+    border: 1px solid red;
+  }
+  th{
+    text-align: center;
+
+}
+  td{
+    text-align: center;
+  }
+  @media screen and (max-width: 480px) {
+    #sizebob{
+        display: none !important;
+    }
+  }
+  #upload:hover{
+    background: #FF0000 !important;
+    color: white !important;
+  }
+
+  #view:hover{
+    background: black!important;
+    color: white !important;
+  }
+
+  @media (max-width: 600px) {
     
 }

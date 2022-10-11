@@ -3615,6 +3615,11 @@
   "resolved" "https://registry.npmjs.org/connect-history-api-fallback/-/connect-history-api-fallback-2.0.0.tgz"
   "version" "2.0.0"
 
+"console-browserify@^1.2.0":
+  "integrity" "sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA=="
+  "resolved" "https://registry.npmjs.org/console-browserify/-/console-browserify-1.2.0.tgz"
+  "version" "1.2.0"
+
 "content-disposition@0.5.4":
   "integrity" "sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ=="
   "resolved" "https://registry.npmjs.org/content-disposition/-/content-disposition-0.5.4.tgz"
@@ -8209,10 +8214,10 @@
   "resolved" "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   "version" "6.0.11"
 
-"react-hook-form@*", "react-hook-form@^7.34.2":
-  "integrity" "sha512-9CYdOed+Itbiu5VMVxW0PK9mBR3f0gDGJcZEyUSm0eJbDymQ913TRs2gHcQZZmfTC+rtxyDFRuelMxx/+xwMcw=="
-  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.35.0.tgz"
-  "version" "7.35.0"
+"react-hook-form@*", "react-hook-form@^7.34.2", "react-hook-form@^7.37.0":
+  "integrity" "sha512-6NFTxsnw+EXSpNNvLr5nFMjPdYKRryQcelTHg7zwBB6vAzfPIcZq4AExP4heVlwdzntepQgwiOQW4z7Mr99Lsg=="
+  "resolved" "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.37.0.tgz"
+  "version" "7.37.0"
 
 "react-is@^16.13.1":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="

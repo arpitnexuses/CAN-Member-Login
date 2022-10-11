@@ -5,11 +5,13 @@ import {
   CustomerCreateReducer,
   customerDeleteReducer,
   customerListReducer,
+  customerUpdateReducer
 } from "./reducers/notesReducers";
 import {
   userLoginReducer,
   userRegisterReducer,
   userUpdateReducer,
+  userListReducer,
 } from "./reducers/userReducers";
 
 const reducer = combineReducers({
@@ -19,6 +21,8 @@ const reducer = combineReducers({
   userUpdate: userUpdateReducer,
   customerList: customerListReducer,
   customerDelete: customerDeleteReducer,
+  userList: userListReducer,
+  customerUpdate: customerUpdateReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

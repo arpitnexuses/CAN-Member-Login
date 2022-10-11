@@ -21,6 +21,7 @@ function GenerateQuote ({ history }) {
     const [coverageAmount, setCoverageAmount] = useState("");  
     const [paymentterm, setPaymentTerm] = useState("");
     const [conditions, setConditions] = useState("");
+    const [solutions, setSolutions] = useState("");
 
     const dispatch = useDispatch();
 
@@ -40,12 +41,15 @@ function GenerateQuote ({ history }) {
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        if (!fullname, !dateofbirth, !gender, !country, !city, !smoker, !nationality, !coverageAmount, !paymentterm, !conditions) return;
-        dispatch(createCustomerAction(fullname, dateofbirth, gender, country, city, smoker, nationality, coverageAmount, paymentterm, conditions ));
+        if (!fullname, !dateofbirth, !gender, !country, !city, !smoker, !nationality, !coverageAmount, !paymentterm, !conditions, !solutions) return;
+        dispatch(createCustomerAction(fullname, dateofbirth, gender, country, city, smoker, nationality, coverageAmount, paymentterm, conditions, solutions ));
 
         console.log(fullname)
         history.push("./quotegenerator"); 
       };
+      const range = (e) => {
+  
+      }
     return (
         <>
 
@@ -204,19 +208,46 @@ function GenerateQuote ({ history }) {
                         </div>
                     </Form.Group>
 
-         
-                    <Form.Label id="lebge" className='lebg'>Amount of Coverage Required</Form.Label><br />
-                    <Form.Label id="minip" className='minip'>in Million</Form.Label>
-                    <div className="covera">
-                        <div>
-                            <Form.Label id="minip" className='minip'>1=Million</Form.Label>
-                        </div>
-                        <div>
-                            <Form.Label id="minipo" className='minip'>100=Million</Form.Label>
-                        </div>
-                    </div>
+                    <Form.Group>
+                    <Form.Label id="lebgccc" className='lebg'>Solution</Form.Label>
+                        <Form.Control as="select" className="drop" value={solutions} onChange={(event) => setSolutions(event.target.value)}> 
+                            <option value="Solutions">Solution</option>
+                            <option value="High Value">High Value</option>
+                            <option value="Omnicare">Omnicare</option>
+                        </Form.Control>
+                    </Form.Group>
+                    
+                    
                     <br />
-                    <Slider id="range" defaultValue={50} aria-label="Default" valueLabelDisplay="auto" onChange={(event) => setCoverageAmount(event.target.value)} />
+                   
+                    {solutions === "Omnicare" && <>
+                    <Form.Label id="lebge" className='lebg'>Amount of Coverage Required</Form.Label><br />
+                    
+                    <div className="covera">
+                    <div>
+                        <Form.Label id="minip" className='minip'>1=100K</Form.Label>
+                    </div>
+                    <div>
+                        <Form.Label id="minipo" className='minip'>1=Million</Form.Label>
+                    </div>
+                </div>
+                    
+                    <Slider id="range" defaultValue={50} aria-label="Default" valueLabelDisplay="auto" onChange={(event) => setCoverageAmount(event.target.value)} /></>}
+                    {solutions === "High Value" && <>
+                    <Form.Label id="lebge" className='lebg'>Amount of Coverage Required</Form.Label><br />
+                    
+                    <div className="covera">
+                    <div>
+                        <Form.Label id="minip" className='minip'>1=Million</Form.Label>
+                    </div>
+                    <div>
+                        <Form.Label id="minipo" className='minip'>200=Million</Form.Label>
+                    </div>
+                </div>
+                    
+                    <Slider id="range"  aria-label="Default" valueLabelDisplay="auto" onChange={(event) => setCoverageAmount(event.target.value)} min={0} max={200}/></>}
+                   
+                    
                     <Form.Group>
                         <Form.Control as="select" className="drop" value={paymentterm} onChange={(event) => setPaymentTerm(event.target.value)}> 
                             <option value="Select Payment Term">Select Payment Term</option>
@@ -237,15 +268,12 @@ function GenerateQuote ({ history }) {
                         ></Form.Control>
                     </Form.Group>
            
-                <div className="d-grid gap2">
+                <div className=" gap2">
       <Button variant="danger" size="lg" className="gap1" onClick={submitHandler}>
         GENERATE QUOTE
       </Button>
-      <Link to="/clientlist">
-      <Button variant="danger" size="lg" className="gap2" id="gap2">
-        CLIENT LIST
-      </Button>
-      </Link>
+  
+
       </div>     </Form>
             </Card>
         </>

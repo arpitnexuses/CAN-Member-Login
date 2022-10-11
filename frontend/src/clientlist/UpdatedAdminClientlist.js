@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from "react-redux";
-import { deleteNoteAction, listCustomers } from "../actions/notesActions";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useSelector , useDispatch} from "react-redux";
+import { deleteNoteAction, listAllCustomers } from "../actions/notesActions";
 import "./list.css"
-
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
-
-
-
-function UpdatedClientlist({ history }) {
-
-  const [modelopen, setModelopen] = useState(false);
-  const [modelData, setModelData] = useState("");
-  const handleClose = () => setModelopen(false);
-
-  const dispatch = useDispatch();
+function UpdatedAdminClientlist({history}) {
+    const [modelopen, setModelopen] = useState(false);
+    const [modelData, setModelData] = useState("");
+    const handleClose = () => setModelopen(false);
+    const dispatch = useDispatch();
 
   const customerList = useSelector((state) => state.customerList);
-  const { customers } = customerList; 
+  const { customers } = customerList;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -44,7 +38,7 @@ function UpdatedClientlist({ history }) {
   } = customerDelete;
 
   useEffect(() => {
-    dispatch(listCustomers());
+    dispatch(listAllCustomers());
     if (!userInfo) {
       history.push("/");
     }
@@ -56,8 +50,11 @@ function UpdatedClientlist({ history }) {
     errorDelete,
     successDelete
   ]);
-
-	
+  const deleteHandler = (id) => {
+    if (window.confirm("Are you sure?")) {
+      dispatch(deleteNoteAction(id));
+    }
+  };
   return (
     <>
       <div>
@@ -70,7 +67,7 @@ function UpdatedClientlist({ history }) {
               <th>
                 Full Name
               </th>
-              <th id="sizebob">
+              <th>
                 Date of birth
               </th>
               <th>
@@ -80,15 +77,8 @@ function UpdatedClientlist({ history }) {
                 Details
               </th>
               <th>
-                Status
-              </th>
-              <th>
-                Download
-              </th>
-              <th>
                 Action
               </th>
-             
             </tr>
           </thead>
           <tbody>
@@ -96,11 +86,10 @@ function UpdatedClientlist({ history }) {
               <tr key={customer._id}>
                 <td></td>
                 <td>{customer.fullname}</td>
-                <td id="sizebob">{customer.dateofbirth}</td>
+                <td>{customer.dateofbirth}</td>
                 <td>{customer.coverageAmount} Millions</td>
-                
                 <td> 
-                  <input style={{ background: "lightgrey" }} className="button-31" type='button' value='View' id='view'
+                  <input style={{ background: "lightgrey" }} className="button-31" type='button' value='View' 
                   onClick={() => { 
                     setModelopen(true);
                     setModelData(customer); 
@@ -108,16 +97,8 @@ function UpdatedClientlist({ history }) {
                     />
                 </td>
                 <td>
-                <input style={{ background: "white" }} className="button-31" id="req" type='button' value='Requested'/> 
+                  <input style={{ background: "#FF4B2B", color: "white" }} className="button-31" type='button' value='Delete' />
                 </td>
-                <td>
-                <input style={{ background: "", color:"white" }} className="button-31" id="down" type='button' value='Download'/> 
-                </td>
-                <td>
-                  <input style={{ background: "white", color: "red"}} id="upload" className="button-31" type='button' value='Delete' />
-                  
-                </td>
-                
               </tr>
             ))}
           </tbody>
@@ -128,6 +109,9 @@ function UpdatedClientlist({ history }) {
         onClose={handleClose}
       >
         <Box sx={style} >
+        <Typography id="modal-modal-title" variant="h6" component="h2" >
+            Partner Name : {modelData.partner}
+          </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2" >
             {modelData.fullname}
           </Typography>
@@ -163,4 +147,4 @@ function UpdatedClientlist({ history }) {
   )
 }
 
-export default UpdatedClientlist
+export default UpdatedAdminClientlist

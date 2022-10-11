@@ -4,53 +4,68 @@ const customerSchema = mongoose.Schema(
   {
     fullname: {
       type: String,
-      required: true,
+      required: false,
+      default: ''
     },
     dateofbirth: {
-      type: "string",
-      required: true,
+      type: String,
+      required: false,
+      default: ''
     },
     gender: {
       type: String,
-      required: true,
+      required: false,
+      default: ''
     },
     country: {
       type: String,
-      required: true,
+      required: false,
+      default: ''
     },
     nationality: {
       type: String,
-      required: true,
+      required: false,
+      default: ''
     },
     city: {
       type: String,
-      required: true,
+      required: false,
+      default: ''
     },
     smoker: {
-      type: String,
-      required: true,
+      type: "string",
+      required: false,
+      default: ''
     },
     coverageAmount: {
       type: Number,
-      required: true,
+      required: false,
+      default: ''
     },
     paymentterm:{
-      type: String,
-      required: true,
+      type: "string",
+      required: false,
+      default: ''
     },
     conditions: {
-      type: String,
-      required: true,
+      type: "string",
+      required: false,
+      default: ''
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      required: false,
       ref: "User",
     },
     partner: {
       type: mongoose.Schema.Types.String,
-      required: true,
+      required: false,
       ref: "User",
+    },
+    quotedocument: {
+      type: String,
+      required: false,
+      default: ''
     },
   },
   {

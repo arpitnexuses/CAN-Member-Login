@@ -5,6 +5,8 @@ import path from "path";
 import cors from "cors"
 import customerRoutes from "./routes/customerRoutes.js";
 import allcustomerRoutes from "./routes/allcustomerRoutes.js"
+import alluserRoutes from "./routes/alluserRoutes.js";
+import updatecustomerRoutes from "./routes/updatecustomerRoutes.js"
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import cookieParser from "cookie-parser"
@@ -23,6 +25,9 @@ app.use(express.json()); // to accept json data
 app.use("/api/users", userRoutes);
 app.use("/api/customer", customerRoutes);
 app.use("/api/adminclient", allcustomerRoutes);
+app.use("/api/allpartners", alluserRoutes);
+app.use("/api/uploaddoc", allcustomerRoutes, updatecustomerRoutes);
+
 
 // --------------------------deployment------------------------------
 const __dirname = path.resolve();

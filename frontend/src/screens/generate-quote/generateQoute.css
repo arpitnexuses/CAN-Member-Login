@@ -2,7 +2,7 @@
 #cardss{
     width: 900px !important;
     background-color: rgb(236, 234, 234);
-
+    
     margin: auto; 
     margin-bottom: 110px;
 }
@@ -44,7 +44,7 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
 .lebg{
     margin-left: 17.8%;
     text-align: end ;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .lebc{
     margin-left: 17.8%;
@@ -54,30 +54,31 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
     margin-left: 17.8%;
 }
 #lebge{
-    margin-bottom: -22px;
+    margin-bottom: -10px;
 }
 #range{
     width: 65%;
     margin-left: 17.8%;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .RangeSlider{
     margin-left: 17.8%;
 }
 #minip{
     margin-left: 17.8%;
-    font-style: italic;
+
     margin-top: -20px !important;
 }
 #minipo{
-    margin-left: -280px;
+    margin-left: 120px;
 }
 .covera{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    margin-left: 12%;
+    width: 75%;
+    margin-left: 110px;
     margin-bottom: -36px;
 }
 .drop{
@@ -93,13 +94,27 @@ Form.Control[type=date]:focus::-webkit-datetime-edit {
     width: 80.5%;
     margin-left: 10%;
     margin-top: 20px;
-    text-align: center !important;
+
+    text-align: center!important;
+
 
 }
 .gap2{
+    text-align: center!important;
     width: 80.5%;
     margin-left: 10%;
     margin-top: 20px;
     margin-bottom: 35px;
-    text-align: center !important;
+    
+}
+
+@media (max-width: 600px) {
+    #cardss{
+        width: 420px !important;
+    
+    }
+    .covera{
+      margin: auto;
+      margin-bottom: -30px;
+    }
 }

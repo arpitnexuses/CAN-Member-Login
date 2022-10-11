@@ -8,6 +8,9 @@ import {
   CUSTOMER_LIST_FAIL,
   CUSTOMER_LIST_REQUEST,
   CUSTOMER_LIST_SUCCESS,
+  CUSTOMER_UPDATE_SUCCESS,
+  CUSTOMER_UPDATE_REQUEST,
+  CUSTOMER_UPDATE_FAIL
 } from "../constants/notesConstants.js";
 
 
@@ -47,6 +50,19 @@ export const customerDeleteReducer = (state = {}, action) => {
     case CUSTOMER_DELETE_FAIL:
       return { loading: false, error: action.payload, success: false };
 
+    default:
+      return state;
+  }
+};
+
+export const customerUpdateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case CUSTOMER_UPDATE_REQUEST:
+      return { loading: true };
+    case CUSTOMER_UPDATE_SUCCESS:
+      return { loading: false, customers: action.payload, success: true };
+    case CUSTOMER_UPDATE_FAIL:
+      return { loading: false, error: action.payload, success: false };
     default:
       return state;
   }

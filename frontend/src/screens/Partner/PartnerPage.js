@@ -6,6 +6,7 @@ import { usePermissions } from 'react-admin';
 function PartnerPage({history}) {
     const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  
   useEffect(() => {
     if (!userInfo){
       history.push("/login");}    
@@ -14,7 +15,7 @@ function PartnerPage({history}) {
   
   
   return (
-    <MainScreen className="mainsc" title={`Welcome Partner ${userInfo && userInfo.name}..`}/>
+    <MainScreen className="mainsc" title={`Welcome Partner ${userInfo && userInfo.city}..`}/>
   )
 }
 

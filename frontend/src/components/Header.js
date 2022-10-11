@@ -15,9 +15,16 @@ const MainNav = () => {
 
 
     return (
+        <>
+
+        <input className="side-menu" type="checkbox" id="side-menu"/>
+        <label className="hamb" for="side-menu"><span className="hamb-line"></span></label>
+
         <Nav className="mr-auto" id="links">
             {userInfo ? (
                 <>
+               
+        
                     {userInfo.role === 'admin' && (<Nav.Link
                         as={RouterNavLink}
                         to="/protect"
@@ -117,6 +124,37 @@ const MainNav = () => {
                         >
                             Partner
                         </Nav.Link>)}
+                        {userInfo.role === "partner" && (
+                        <Nav.Link
+                            as={RouterNavLink}
+                            to="/clientlist"
+                            exact
+                            activeClassName="router-link-exact-active"
+                            id="links"
+                        >
+                            Quotes
+                        </Nav.Link>)}
+                        {userInfo.role === "admin" && (
+                        <Nav.Link
+                            as={RouterNavLink}
+                            to="/clientlist"
+                            exact
+                            activeClassName="router-link-exact-active"
+                            id="links"
+                        >
+                            Quotes
+                        </Nav.Link>)}
+                        {userInfo.role === "manager" && (
+                        <Nav.Link
+                            as={RouterNavLink}
+                            to="/clientlist"
+                            exact
+                            activeClassName="router-link-exact-active"
+                            id="links"
+                        >
+                            Quotes
+                        </Nav.Link>)}
+                        
                 </>
             ) : (<Nav.Link href="/login" className="login">Login</Nav.Link>)}
 
@@ -137,7 +175,7 @@ const MainNav = () => {
                 id="links"
                 activeClassName="router-link-exact-active"
             >
-                Quote Generator
+                Quote
             </Nav.Link>
              <Nav.Link
                 as={RouterNavLink}
@@ -149,6 +187,7 @@ const MainNav = () => {
                 Profile
             </Nav.Link>
         </Nav>
+        </>
     )
 };
 
